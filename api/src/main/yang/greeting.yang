@@ -1,0 +1,43 @@
+module greeting {
+  namespace "urn:opendaylight:greeting";
+  prefix grt;
+  revision "2018-07-02" {
+    description "Greet module";
+  }
+  rpc small-greet {
+        input {
+            leaf location {
+                 type string;
+            }
+            leaf weather {
+                 type string;
+            }
+        }
+        output {
+            leaf result {
+                type boolean;
+            }
+        }
+  }
+
+
+  notification big-greet{
+    leaf desc {
+        type string;
+    }
+  }
+
+   container message-data {
+
+    leaf location {
+        type string;
+    }
+    leaf weather {
+        type string;
+    }
+
+ }
+}
+
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/test-aggregator.iml" filepath="$PROJECT_DIR$/test-aggregator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/test-api.iml" filepath="$PROJECT_DIR$/api/test-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/artifacts/test-artifacts.iml" filepath="$PROJECT_DIR$/artifacts/test-artifacts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/features/test-features.iml" filepath="$PROJECT_DIR$/features/test-features.iml" />
+      <module fileurl="file://$PROJECT_DIR$/impl/test-impl.iml" filepath="$PROJECT_DIR$/impl/test-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/karaf/test-karaf.iml" filepath="$PROJECT_DIR$/karaf/test-karaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/impl/traffic-impl.iml" filepath="$PROJECT_DIR$/impl/traffic-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/karaf/traffic-karaf.iml" filepath="$PROJECT_DIR$/karaf/traffic-karaf.iml" />
+    </modules>
+  </component>
+</project>
