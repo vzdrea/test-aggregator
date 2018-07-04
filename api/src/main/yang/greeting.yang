@@ -6,16 +6,14 @@ module greeting {
   }
   rpc small-greet {
         input {
-            leaf location {
+            leaf name {
                  type string;
             }
-            leaf weather {
-                 type string;
-            }
+
         }
         output {
             leaf result {
-                type boolean;
+                type string;
             }
         }
   }
@@ -28,7 +26,11 @@ module greeting {
   }
 
    container message-data {
-
+    container news{
+    leaf name {
+    type string;
+    }
+    }
     leaf location {
         type string;
     }

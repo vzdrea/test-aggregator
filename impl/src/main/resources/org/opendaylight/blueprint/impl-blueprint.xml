@@ -16,8 +16,12 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
              odl:type="default" />
   <reference id="notificationPublishService"
              interface="org.opendaylight.controller.md.sal.binding.api.NotificationPublishService" />
-  <bean id="greet" class="org.utstar.jyh.GreetingIml"
+  <bean id="provider" class="impl.TestProvider"
         init-method="init" destroy-method="close">
+    <argument ref="dataBroker"/>
+
+  </bean>
+  <bean id="greet" class="datastore.GreetingIml">
     <argument ref="dataBroker"/>
   </bean>
   <odl:rpc-implementation ref="greet"/>

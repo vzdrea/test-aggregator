@@ -24,16 +24,9 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
     <feature version='${project.version}'>odl-test-api</feature>
     <bundle>mvn:org.utstar.jyh/test-impl/{{VERSION}}</bundle>
   </feature>
-  <feature name='odl-test-rest' version='${project.version}' description='OpenDaylight :: test :: REST'>
-    <feature version="${project.version}">odl-test</feature>
-    <feature version="${restconf.version}">odl-restconf</feature>
-  </feature>
-  <feature name='odl-test-ui' version='${project.version}' description='OpenDaylight :: test :: UI'>
-    <feature version="${project.version}">odl-test-rest</feature>
-    <feature version="${restconf.version}">odl-mdsal-apidocs</feature>
-    <feature version="${dluxapps.version}">odl-dluxapps-yangman</feature>
-  </feature>
-  <feature name='odl-greet' version='${project.version}' description='OpenDaylight ;;greet'>
+  
+
+  <feature name='odl-greet' version='${project.version}' description='OpenDaylight :: greet'>
     <feature version="${project.version}">odl-test</feature>
     <feature version="${restconf.version}">odl-restconf</feature>
 
