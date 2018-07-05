@@ -18,8 +18,14 @@ import java.util.Collection;
  */
 public class GreetListenerChange implements DataTreeChangeListener<News>{
     private static final Logger LOG = LoggerFactory.getLogger(GreetListenerChange.class);
-    private NotificationPublishService notificationPublishService;
+    private static NotificationPublishService notificationPublishService;
+    public  GreetListenerChange(){
 
+    }
+
+    public void setNotificationPublishService(NotificationPublishService notificationPublish) {
+        notificationPublishService = notificationPublish;
+    }
     @Override
     public void onDataTreeChanged(@Nonnull Collection<DataTreeModification<News>> changes) {
         for (final DataTreeModification<News> change : changes) {
@@ -29,7 +35,9 @@ public class GreetListenerChange implements DataTreeChangeListener<News>{
                     LOG.info("Write - before : {} after : {}", rootChange.getDataBefore(), rootChange.getDataAfter());
 
                     try {
-                        notificationPublishService.putNotification(new BigGreetBuilder().setDesc(rootChange.getDataAfter().getName()).build() );
+                        BigGreetBuilder bigGreetBuilder = new BigGreetBuilder();
+                        bigGreetBuilder.setDesc(rootChange.getDataAfter().getName());
+                        notificationPublishService.putNotification(bigGreetBuilder.build() );
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
