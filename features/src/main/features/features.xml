@@ -23,6 +23,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
     <feature version='${mdsal.version}'>odl-mdsal-broker</feature>
     <feature version='${project.version}'>odl-test-api</feature>
     <bundle>mvn:org.utstar.jyh/test-impl/{{VERSION}}</bundle>
+    <bundle>mvn:org.utstar.jyh/test-consumer/{{VERSION}}</bundle>
   </feature>
   
 
