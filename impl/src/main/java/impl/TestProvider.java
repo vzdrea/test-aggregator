@@ -34,9 +34,9 @@ public class TestProvider {
     public void init(){
         LOG.info("Greet Session Initiated");
         GreetingIml greetingIml =new GreetingIml(dataBroker);
-        InstanceIdentifier<News> id= InstanceIdentifier.create(MessageData.class).child(News.class);
+        InstanceIdentifier<News> ii= InstanceIdentifier.create(MessageData.class).child(News.class);
 
-        dataTreeChangeListenerRegistration = dataBroker.registerDataTreeChangeListener(new DataTreeIdentifier(LogicalDatastoreType.CONFIGURATION,id),new GreetListenerChange());
+        dataTreeChangeListenerRegistration = dataBroker.registerDataTreeChangeListener(new DataTreeIdentifier(LogicalDatastoreType.CONFIGURATION,ii),new GreetListenerChange());
     }
     public void close() {
         LOG.info("Greet Closed");
