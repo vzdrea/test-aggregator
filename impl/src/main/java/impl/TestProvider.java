@@ -1,3 +1,11 @@
+
+/*
+ * Copyright (c) 2018 UTStarcom, Inc. and others. All rights reserved.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html
+ */
 package impl;
 
 /**
@@ -26,18 +34,21 @@ public class TestProvider {
     ListenerRegistration<GreetListenerChange> dataTreeChangeListenerRegistration;
 
 
-    public TestProvider(DataBroker dataBroker){
-        this.dataBroker=dataBroker;
+    public TestProvider(DataBroker dataBroker) {
+        this.dataBroker = dataBroker;
 
     }
 
-    public void init(){
+    public void init() {
         LOG.info("Greet Session Initiated");
-        GreetingIml greetingIml =new GreetingIml(dataBroker);
-        InstanceIdentifier<News> ii= InstanceIdentifier.create(MessageData.class).child(News.class);
+        GreetingIml greetingIml = new GreetingIml(dataBroker);
+        InstanceIdentifier<News> ii = InstanceIdentifier.create(MessageData.class).child(News.class);
 
-        dataTreeChangeListenerRegistration = dataBroker.registerDataTreeChangeListener(new DataTreeIdentifier(LogicalDatastoreType.CONFIGURATION,ii),new GreetListenerChange());
+        dataTreeChangeListenerRegistration = dataBroker
+            .registerDataTreeChangeListener(new DataTreeIdentifier(LogicalDatastoreType.CONFIGURATION, ii),
+                new GreetListenerChange());
     }
+
     public void close() {
         LOG.info("Greet Closed");
     }
