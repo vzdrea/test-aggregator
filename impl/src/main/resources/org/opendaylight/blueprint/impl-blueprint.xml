@@ -26,4 +26,9 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
   </bean>
   <odl:rpc-implementation ref="greet"/>
 
+  <bean id="Notification" class="listener.GreetListenerChange">
+    <property name="notificationPublishService" ref="notificationPublishService" />
+ </bean>
+
+
 </blueprint>
