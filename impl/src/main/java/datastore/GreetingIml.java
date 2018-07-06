@@ -56,11 +56,11 @@ public class GreetingIml implements GreetingService {
         CheckedFuture<Void, TransactionCommitFailedException> future = tx.submit();
         Futures.addCallback(future, new FutureCallback<Void>() {
             @Override public void onSuccess(Void aVoid) {
-                // silent is OK.
+                LOG.info("tx {} succeed");
             }
 
             @Override public void onFailure(Throwable throwable) {
-
+                LOG.error("tx {} failed ", tx.getIdentifier());
             }
         });
         futureResult.set(RpcResultBuilder.success(outputBuilder.build()).build());
