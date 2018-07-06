@@ -43,18 +43,6 @@ public class GreetingIml implements GreetingService {
         this.dataBroker = databroker;
     }
 
-
-    public void init() {
-        LOG.info(" Session Initiated");
-
-    }
-
-
-    public void close() {
-        LOG.info("Greet  Closed");
-
-    }
-
     @Override public Future<RpcResult<SmallGreetOutput>> smallGreet(SmallGreetInput input) {
         SettableFuture<RpcResult<SmallGreetOutput>> futureResult = SettableFuture.create();
 
