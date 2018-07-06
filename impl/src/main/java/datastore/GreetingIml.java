@@ -1,3 +1,11 @@
+
+/*
+ * Copyright (c) 2018 UTStarcom, Inc. and others. All rights reserved.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html
+ */
 package datastore;
 
 import com.google.common.util.concurrent.CheckedFuture;
@@ -19,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+
 import javax.annotation.Nonnull;
 import java.util.Collection;
 import java.util.concurrent.Future;
@@ -26,13 +35,12 @@ import java.util.concurrent.Future;
 /**
  * Created by HZ20314 on 2018/7/2.
  */
-public class GreetingIml implements GreetingService{
+public class GreetingIml implements GreetingService {
     private static final Logger LOG = LoggerFactory.getLogger(GreetingIml.class);
     private final DataBroker dataBroker;
 
-    public GreetingIml(final DataBroker databroker){
-
-        this.dataBroker=databroker;
+    public GreetingIml(final DataBroker databroker) {
+        this.dataBroker = databroker;
     }
 
 
@@ -47,38 +55,34 @@ public class GreetingIml implements GreetingService{
 
     }
 
-    @Override
-    public Future<RpcResult<SmallGreetOutput>> smallGreet(SmallGreetInput input) {
-        SettableFuture<RpcResult <SmallGreetOutput>> futureResult = SettableFuture.create();
+    @Override public Future<RpcResult<SmallGreetOutput>> smallGreet(SmallGreetInput input) {
+        SettableFuture<RpcResult<SmallGreetOutput>> futureResult = SettableFuture.create();
 
         WriteTransaction tx = dataBroker.newWriteOnlyTransaction();
         News news = createDbGreeting(input);
         InstanceIdentifier<News> ii = InstanceIdentifier.create(MessageData.class).child(News.class);
-        tx.put(LogicalDatastoreType.CONFIGURATION,ii,news);
+        tx.put(LogicalDatastoreType.CONFIGURATION, ii, news);
         SmallGreetOutputBuilder outputBuilder = new SmallGreetOutputBuilder();
         outputBuilder.setResult(input.getName()).build();
 
         CheckedFuture<Void, TransactionCommitFailedException> future = tx.submit();
         Futures.addCallback(future, new FutureCallback<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
+            @Override public void onSuccess(Void aVoid) {
                 // silent is OK.
             }
 
-            @Override
-            public void onFailure(Throwable throwable) {
+            @Override public void onFailure(Throwable throwable) {
 
             }
         });
-        futureResult.set(RpcResultBuilder.success(
-                outputBuilder.build()).build());
-        return  futureResult;
+        futureResult.set(RpcResultBuilder.success(outputBuilder.build()).build());
+        return futureResult;
     }
 
     private News createDbGreeting(SmallGreetInput input) {
         NewsBuilder newsBuilder = new NewsBuilder();
         newsBuilder.setName(input.getName());
 
-      return  newsBuilder.build();
+        return newsBuilder.build();
     }
 }
