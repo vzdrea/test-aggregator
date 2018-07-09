@@ -20,7 +20,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
           init-method="init" destroy-method="close">
         <argument ref="dataBroker"/>
         <argument ref="Notification"/>
-        <argument ref="greet"/>
+
     </bean>
     <bean id="greet" class="com.utstar.test.impl.datastore.GreetingIml">
         <argument ref="dataBroker"/>
