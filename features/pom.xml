@@ -18,12 +18,12 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <relativePath/>
     </parent>
 
-    <groupId>com.utstar.jyh</groupId>
+    <groupId>com.utstar.test</groupId>
     <artifactId>test-features</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <!-- <name> formatting is used by autorelease to parse and notify projects on
          build failure. Please do not modify this unless you have a good reason. -->
-    <name>ODL :: com.utstar.jyh :: ${project.artifactId}</name>
+    <name>ODL :: com.utstar.test :: ${project.artifactId}</name>
 
     <properties>
         <mdsal.model.version>0.10.1-Carbon</mdsal.model.version>
@@ -57,6 +57,13 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
                 <version>${yangtools.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.utstar.test</groupId>
+                <artifactId>test-artifacts</artifactId>
+                <version>${project.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -102,18 +109,17 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>test-impl</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>test-api</artifactId>
-            <version>${project.version}</version>
+
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>test-consumer</artifactId>
-            <version>${project.version}</version>
+
         </dependency>
 
     </dependencies>

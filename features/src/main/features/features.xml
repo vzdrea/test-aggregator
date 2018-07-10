@@ -17,13 +17,13 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
     <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/{{VERSION}}/xml/features</repository>
     <feature name='odl-test-api' version='${project.version}' description='OpenDaylight :: test :: api'>
         <feature version='${mdsal.model.version}'>odl-mdsal-models</feature>
-        <bundle>mvn:com.utstar.jyh/test-api/{{VERSION}}</bundle>
+        <bundle>mvn:com.utstar.test/test-api/{{VERSION}}</bundle>
     </feature>
     <feature name='odl-test' version='${project.version}' description='OpenDaylight :: test'>
         <feature version='${mdsal.version}'>odl-mdsal-broker</feature>
         <feature version='${project.version}'>odl-test-api</feature>
-        <bundle>mvn:com.utstar.jyh/test-impl/{{VERSION}}</bundle>
-        <bundle>mvn:com.utstar.jyh/test-consumer/{{VERSION}}</bundle>
+        <bundle>mvn:com.utstar.test/test-impl/{{VERSION}}</bundle>
+        <bundle>mvn:com.utstar.test/test-consumer/{{VERSION}}</bundle>
     </feature>
 
 
