@@ -22,7 +22,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
         <argument ref="Notification"/>
 
     </bean>
-    <bean id="greet" class="com.utstar.test.impl.datastore.GreetingIml">
+    <bean id="greet" class="com.utstar.test.impl.datastore.GreetingImpl">
         <argument ref="dataBroker"/>
     </bean>
     <odl:rpc-implementation ref="greet"/>
