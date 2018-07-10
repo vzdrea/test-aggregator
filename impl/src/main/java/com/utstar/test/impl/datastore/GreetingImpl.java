@@ -39,11 +39,11 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by HZ20314 on 2018/7/2.
  */
-public class GreetingIml implements GreetingService {
-    private static final Logger LOG = LoggerFactory.getLogger(GreetingIml.class);
+public class GreetingImpl implements GreetingService {
+    private static final Logger LOG = LoggerFactory.getLogger(GreetingImpl.class);
     private final DataBroker dataBroker;
 
-    public GreetingIml(final DataBroker databroker) {
+    public GreetingImpl(final DataBroker databroker) {
         this.dataBroker = databroker;
     }
 
@@ -55,13 +55,11 @@ public class GreetingIml implements GreetingService {
         tx.put(LogicalDatastoreType.CONFIGURATION, ii, news);
         CheckedFuture<Void, TransactionCommitFailedException> future = tx.submit();
         Futures.addCallback(future, new FutureCallback<Void>() {
-            @Override
-            public void onSuccess(Void avoid) {
+            @Override public void onSuccess(Void avoid) {
                 LOG.info("Succeed to write config/DS");
             }
 
-            @Override
-            public void onFailure(Throwable throwable) {
+            @Override public void onFailure(Throwable throwable) {
                 LOG.error("Failed to write config/DS ", throwable);
             }
         });
